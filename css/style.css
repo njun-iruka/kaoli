@@ -1,0 +1,533 @@
+@charset "utf-8";
+body{
+  font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+  font-size: 8pt;
+  margin: 0;
+  padding: 0;
+  background-color: #E6D5C4;
+}
+/*headerの記述*/
+.header_kaoli{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 5;
+}
+
+#rogo{
+  width: 150px;
+}
+#pcmenu{
+  display: none;
+}
+#menu{
+  height: 50px;
+}
+@media screen and (min-width:1024px) {
+  .header_kaoli{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    z-index: 5;
+  }
+  #pcmenu{
+    display: flex;
+    width: 700px;
+    height: 100%;
+    margin: auto;
+    font-family: "Roboto","Helvetica","Segoe UI";
+    font-size: 16pt;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+  }
+  #pcmenu li a{
+    text-decoration: none;
+    color: #7A6674;
+  }
+  #pcmenu li a:visited{
+  color: #7A6674;
+  }
+  #menu{
+    display: none;
+  }
+}
+/*topエリア以下の記述*/
+#topimage{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.maintextbox{
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+#top_iamgebox{
+  display: flex;
+}
+#top_left{
+  width: 48%;
+  height: 125px;
+  object-fit: cover;
+  margin-right: 4%;
+}
+#top_right{
+  width: 48%;
+  height: 125px;
+  object-fit: cover;
+  margin-top: 50px;
+}
+@media screen and (min-width:1024px) {
+  .toparea{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  #topimage{
+    width: 100%;
+    height: 600px;
+  }
+  .imagetext{
+    position: relative;
+    width: 70%;
+  }
+  #top_left{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 0;
+    display: block;
+  }
+  #top_right{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 0;
+    display: block;
+  }
+  #top_iamgebox{
+    display: flex;
+    flex-flow: column;
+  }
+
+  .maintextbox{
+    position:absolute;
+    z-index: 4;
+    width: 55%;
+    height: auto;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+    font-size: 11pt;
+  }
+  .maintext{
+    display: inline;
+    padding: 5px;
+    background: linear-gradient(transparent 0%,#FFF 0%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+  }
+}
+/*Scrollアニメ部分の記述*/
+.scrollarea{
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+.scroll{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+}
+.scroll span{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #7A6674;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertival-rl;
+  writing-mode: vertical-rl;
+}
+.scroll::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #7A6674;
+  animation: 
+    circlemove 1.6s ease-in-out infinite,
+    circlemovehide 1.6s ease-out infinite;
+}
+@keyframes circlemove{
+  0%{bottom: 45px;}
+  100%{bottom: -5px;}
+}
+@keyframes circlemovehide{
+  0%{opacity: 0;}
+  50%{opacity: 1;}
+  80%{opacity: 0.9;}
+  100%{opacity: 0;}
+}
+.scroll::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 50px;
+  background: #7A6674;
+}
+/*ITEMS以下の記述*/
+h1{
+  font-family: "Roboto","Helvetica","Segoe UI";
+  color: #7A6674;
+  font-size: 16pt;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.contentsarea{
+  width: 100%;
+  height: 400px;
+}
+.scroll_horizon{
+  overflow-x: scroll;
+  /*-webkit-overflow-scrolling: touch;*/
+  scrollbar-width: none;
+  height: 170px;
+  width: 100%;
+  position: relative;
+}
+.scroll_horizon::-webkit-scrollbar{
+  display: none;
+}
+.scroll_horizon ul{
+  display: flex;
+  list-style-type: none;
+}
+.scroll_horizon ul li{
+  display: flex;
+}
+.cardimage img{
+  width: 96px;
+  height: 96px;
+}
+.cardimage{
+  text-align: center;
+  padding-top: 8px;
+}
+.cardtext{
+  text-align: center;
+  font-size: 5pt;
+}
+.cardprice{
+  text-align: right;
+  font-size: 5px;
+  padding-right: 8px;
+}
+.card-box{
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.card-box .card {
+  box-shadow:0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 112px;
+  height: 150px;
+  background-color:#fff; 
+  transition:box-shadow 0.3s, transform 0.3s;
+}
+.card-box .card:hover {
+  box-shadow:0 6px 14px rgba(0, 0, 0, 0.24);
+  transform:translate(0, -2px);
+}
+@media screen and (min-width:1024px) {
+  h1{
+    font-family: "Roboto","Helvetica","Segoe UI";
+    color: #7A6674;
+    font-size: 20pt;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  .contentsarea{
+    width: 100%;
+    height: 800px;
+  }
+  .scroll_horizon{
+    overflow-x: visible;
+    scrollbar-width: none;
+    height: 500px;
+    width: 90%;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .scroll_horizon ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+  }
+  .scroll_horizon ul li{
+    display: flex;
+    height: 228px;
+  }
+  .card-box{
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+  .card-box .card {
+    box-shadow:0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 170px;
+    height: 228px;
+    background-color:#fff; 
+    transition:box-shadow 0.3s, transform 0.3s;
+  }
+  .cardimage img{
+    width: 150px;
+    height: 150px;
+  }
+  .cardimage{
+    text-align: center;
+    padding-top: 10px;
+  }
+  .cardtext{
+    text-align: center;
+    font-size: 10pt;
+  }
+  .cardprice{
+    text-align: right;
+    font-size: 10px;
+    padding-right: 10px;
+  }
+}
+/*MOREボタン以下の記述*/
+.morearea{
+  font-size: 14pt;
+  height: 4em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.button-more{
+  height: 1em;
+  width: 25%;
+  padding-left: 0.35em;
+  padding-right: 0.35em;
+  padding-top: 0.2em;
+  padding-bottom: 0.6em;
+  margin-right: 25px;
+  color: #fff;
+  background: #7A6674;
+  text-decoration: none;
+  font-family: "Roboto","Helvetica","Segoe UI";
+  font-size: 14pt;
+  font-weight: 300;
+  position: relative;
+  display: inline-block;
+}
+.button-more::before{
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 15%;
+  width: 70%;
+  height: 1pt;
+  background: #fff;
+  transition:all 0.3s;
+}
+.button-more::after{
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 15%;
+  width: 15px;
+  height: 1px;
+  background: #fff;
+  transform:rotate(35deg);
+  transition: all 0.3s;
+}
+.button-more:hover::before{
+  left: 20%;
+}
+.button-more:hover::after{
+  right: 10%;
+}
+@media screen and (min-width:1024px) {
+  .button-more{
+    height: 1em;
+    width: 10%;
+    padding-left: 0.35em;
+    padding-right: 0.35em;
+    padding-top: 0.2em;
+    padding-bottom: 0.6em;
+    margin-right: 25px;
+    color: #fff;
+    background: #7A6674;
+    text-decoration: none;
+    font-family: "Roboto","Helvetica","Segoe UI";
+    font-size: 14pt;
+    font-weight: 300;
+    position: relative;
+    display: inline-block;
+  }
+}
+/*INSTAGRAMエリア以下の記述*/
+.instaarea{
+  width: 100%;
+  height: 700px;
+}
+.instagram_box{
+  margin: 0 auto;
+  max-width: 350px;
+}
+/*SHOPエリア以下の記述*/
+.shoparea{
+  width: 100%;
+  height: 450px;
+}
+.mapflex{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 8%;
+  width: 84%;
+}
+#maptable{
+  padding-bottom: 150px;
+}
+td{
+  padding-right: 15px;
+  text-align: center;
+}
+.mapdata{
+  width: 300px;
+}
+#map01{
+  height: 200px;
+  width: 100%;
+}
+@media screen and (min-width:1024px) {
+  .shoparea{
+    width: 100%;
+    height: 600px;
+  }
+  .mapdata{
+    width: 600px;
+  }
+  #map01{
+    height: 400px;
+    width: 100%;
+  }
+}
+/*footerの記述*/
+footer{
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  color:#7A6674;
+  font-family: "Roboto","Helvetica","Segoe UI";
+  text-align: center;
+}
+ul.footer-menu li{
+  display: inline;
+}
+.footer-a{
+  text-decoration: none;
+  color: #7A6674;
+}
+.footer-a:visited{
+  color: #7A6674;
+}
+.anchor {
+  display: block;
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+/*items.html用の記述*/
+.mainarea{
+  width: 100%;
+}
+.main_items{
+
+  margin: 0 auto;
+}
+.main_items ul{
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+.main_items ul li{
+  display: flex;
+  height: 200px;
+}
+@media screen and (min-width:1024px) {
+  .mainarea{
+    width: 100%;
+  }
+  .main_items ul li{
+    display: flex;
+    height: 228px;
+    margin: 0 0 20px 0;
+  }
+}
+/*item_001.html用の記述*/
+.item001area{
+  width: 100%;
+}
+.item001{
+  justify-content: center;
+  text-align: center;
+}
+#item001image{
+  margin: 40px 0 0 0;
+}
+.itemsub{
+  font-size: 14pt;
+}
+.itemtext{
+  margin: 10px 0 30px 0px;
+}
+@media screen and (min-width:1024px) {
+  .item001{
+    display: flex;
+    height: 400px;
+    margin: 30px 0 30px 0;
+  }
+  .itembox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px 30px 30px 30px;
+  }
+  .itemsub{
+    font-size: 18pt;
+  }
+  .itemtext{
+    font-size: 14pt;
+  }
+}
